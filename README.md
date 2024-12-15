@@ -4,7 +4,7 @@
 ## INTERACTIVE WEBSITE AND VISUALIZATION
 
 https://team-23-mj-6242.uw.r.appspot.com/
-
+(this will take a few seconds to load)
 ## DEMO VIDEO
 
 https://www.youtube.com/watch?v=Z5mvUHS3puI
