@@ -1,0 +1,16 @@
+digraph Tree1 {
+	graph [nodesep=0.05 rankdir=LR ranksep=0.3]
+	leaf0 [label=<leaf 0: <B>18.805</B>> color=black fillcolor=white penwidth=1 shape=ellipse style=""]
+	split2 -> leaf0 [label=yes color=black penwidth=1]
+	leaf3 [label=<leaf 3: <B>18.467</B>> color=black fillcolor=white penwidth=1 shape=ellipse style=""]
+	split2 -> leaf3 [label=no color=black penwidth=1]
+	split2 [label=<<B>AVG_TOT_TURNOVERS</B> &#8804;<B>14.114</B>> color=black fillcolor=white penwidth=1 shape=rectangle style=""]
+	split0 -> split2 [label=yes color=black penwidth=1]
+	leaf1 [label=<leaf 1: <B>19.876</B>> color=black fillcolor=white penwidth=1 shape=ellipse style=""]
+	split1 -> leaf1 [label=yes color=black penwidth=1]
+	leaf2 [label=<leaf 2: <B>18.990</B>> color=black fillcolor=white penwidth=1 shape=ellipse style=""]
+	split1 -> leaf2 [label=no color=black penwidth=1]
+	split1 [label=<<B>AVG_TOT_TURNOVERS</B> &#8804;<B>14.114</B>> color=black fillcolor=white penwidth=1 shape=rectangle style=""]
+	split0 -> split1 [label=no color=black penwidth=1]
+	split0 [label=<<B>AVG_DEF_REBOUNDS</B> &#8804;<B>25.505</B>> color=black fillcolor=white penwidth=1 shape=rectangle style=""]
+}

@@ -1,0 +1,114 @@
+
+version: 2
+
+models:
+  - name: wnba_pbp_sorted
+    description: Convert from strings to the correct datatypes for the WNBA play-by-play data.
+    # columns:
+    #   - name: age
+    #     description: Age
+    #     data_tests:
+    #       - unique
+    #       - not_null
+    #   - name: mean_fare
+    #     description: Mean of the fare column.
+    #     data_tests:
+    #       - not_null
+  - name: nba_pbp_sorted
+    description: Sort the NBA play-by-play data by date, gameid, period, and event number.
+    columns:
+       - name: nba_game_id
+         description: Game ID.
+         data_tests:
+           - not_null
+       - name: event_number
+         description: Event number in game.
+         data_tests:
+           - not_null
+       - name: event_type
+         description: Type of event (need to investigate categories).
+       - name: event_action_type
+         description: Type of action in event (need to investigate categories).
+       - name: period
+         description: Period of game.
+         data_tests:
+           - not_null
+       - name: wall_clock_time
+         description: Wall clock time (real time).
+         data_tests:
+           - not_null
+       - name: time_left_in_period
+         description: Time left in current period.
+         data_tests:
+           - not_null
+       - name: home_description
+         description: Description of home team actions.
+       - name: neutral_description
+         description: Description of game / refs, etc.
+       - name: visitor_description
+         description: Description of visitor actions.
+       - name: score
+         description: Game score.
+       - name: score_margin
+         description: Score margin of game.
+       - name: game_date
+         description: Date of the game.
+         data_tests:
+           - not_null
+       - name: visitor_team
+         description: The name of the visiting team.
+         data_tests:
+           - not_null
+       - name: home_team
+         description: The name of the home team.
+         data_tests:
+           - not_null
+  - name: count_records_by_league_year
+    description: Count rows in nba and wnba data.
+    columns:
+      - name: game_year
+        description: Extract year of game_date column.
+        data_tests:
+          - not_null
+      - name: count_records
+        description: Count of game_id or event_id.
+        data_tests:
+          - not_null
+      - name: league
+        description: League name.
+        data_tests:
+          - not_null
+  - name: count_season_wins_wnba
+    description: count number of wins per WNBA team per season
+  - name: wnba_teambox
+    description: summarize wnba team box score data
+  - name: count_season_wins_nba
+    description: count number of wins per NBA team per season
+
+
+
+sources:
+  - name: team_23_project
+    database: "team-23-mj-6242"
+    schema: team_23_dataset
+    tables:
+      - name: wnba-pbp-2019-2024
+        description: "WNBA play-by-play data from 2019 - 2024 seasons."
+      - name: wnba-playerbox-2019-2024
+        description: "WNBA playerbox data from 2019 - 2024 seasons."
+      - name: wnba-schedule-2019-2024-v2
+        description: "WNBA schedule data from 2019 - 2024 seasons."
+      - name: wnba-teambox-2019-2024
+        description: "WNBA teambox data from 2019 - 2024 seasons."
+      - name: nba-pbp-2018-2024
+        description: "NBA data from 2018/2019 - 2024 seasons."
+      - name: nba_player_stats_by_game_id
+        description: "NBA player boxscore data by game"
+      - name: nba_team_stats_by_game_id
+        description: "NBA team boxscore data by game"
+      - name: shot_type_grouping
+        description: "lookup table to group shots"
+      - name: nba-all-coordinates
+        description: "All coordinates related to NBA play-by-play."
+      - name: nba-team-abbreviations
+        description: "All NBA team abbreviations."

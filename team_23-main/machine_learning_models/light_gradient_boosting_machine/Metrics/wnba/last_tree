@@ -1,0 +1,12 @@
+digraph LastTree {
+	graph [nodesep=0.05 rankdir=LR ranksep=0.3]
+	leaf0 [label=<leaf 0: <B>0.086</B>> color=black fillcolor=white penwidth=1 shape=ellipse style=""]
+	split0 -> leaf0 [label=yes color=black penwidth=1]
+	leaf1 [label=<leaf 1: <B>-0.131</B>> color=black fillcolor=white penwidth=1 shape=ellipse style=""]
+	split1 -> leaf1 [label=yes color=black penwidth=1]
+	leaf2 [label=<leaf 2: <B>0.042</B>> color=black fillcolor=white penwidth=1 shape=ellipse style=""]
+	split1 -> leaf2 [label=no color=black penwidth=1]
+	split1 [label=<<B>per_secondchance</B> &#8804;<B>0.031</B>> color=black fillcolor=white penwidth=1 shape=rectangle style=""]
+	split0 -> split1 [label=no color=black penwidth=1]
+	split0 [label=<<B>per_secondchance</B> &#8804;<B>0.018</B>> color=black fillcolor=white penwidth=1 shape=rectangle style=""]
+}

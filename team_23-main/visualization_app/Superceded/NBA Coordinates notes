@@ -1,0 +1,11 @@
+SELECT  MAX(LOC_X) FROM `team-23-mj-6242.team_23_dataset.combined_nba_coordinates`
+250
+
+SELECT  MIN(LOC_X) FROM `team-23-mj-6242.team_23_dataset.combined_nba_coordinates`
+-250
+
+SELECT  MAX(LOC_Y) FROM `team-23-mj-6242.team_23_dataset.combined_nba_coordinates`
+878
+
+SELECT  MIN(LOC_Y) FROM `team-23-mj-6242.team_23_dataset.combined_nba_coordinates`
+-52

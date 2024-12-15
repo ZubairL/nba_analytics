@@ -1,0 +1,13 @@
+runtime: python312
+entrypoint: gunicorn -b :$PORT main:server
+env: standard
+instance_class: F1
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 8

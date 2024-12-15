@@ -1,0 +1,17 @@
+(team_23) PS C:\Users\Carsten\PycharmProjects\team_23\team_23_data_warehouse> gcloud functions add-iam-policy-binding train_lgbm  --member="allUsers"  --role="roles/cloudfunctions.invoker"
+ERROR: (gcloud.functions.add-iam-policy-binding) ResponseError: status=[404], code=[Ok], message=[Function train_lgbm in region us-central1 in project team-23-mj-6242 does not exist]
+(team_23) PS C:\Users\Carsten\PycharmProjects\team_23\team_23_data_warehouse> gcloud functions add-iam-policy-binding train_lgbm  --member="allUsers"  --role="roles/cloudfunctions.invoker" --region="us-west1"
+WARNING: The role [roles/cloudfunctions.invoker] was successfully bound to member [allUsers] but this does not grant the member permission to invoke 2nd gen function [train_lgbm]. Instead, the role [roles/run.invoker] must be granted on the underlying Cloud Run service. This can be done by running the `gcloud functions add-invoker-policy-binding` command.
+
+Would you like to run this command and additionally grant [allUsers] permission to invoke function [train_lgbm] (Y/n)?  y
+
+The role [roles/run.invoker] was successfully bound to the underlying Cloud Run service. You can view its IAM policy by running:
+gcloud run services get-iam-policy projects/team-23-mj-6242/locations/us-west1/services/train-lgbm
+
+bindings:
+- members:
+  - allUsers
+  role: roles/cloudfunctions.invoker
+etag: BwYkuN8i06M=
+version: 1
+(team_23) PS C:\Users\Carsten\PycharmProjects\team_23\team_23_data_warehouse>

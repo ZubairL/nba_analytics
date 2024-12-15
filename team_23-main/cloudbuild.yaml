@@ -1,0 +1,27 @@
+steps:
+  # Deploy the train_lgbm Cloud Function (2nd gen)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - gcloud
+      - functions
+      - deploy
+      - train_lgbm
+      - --entry-point=train_lgbm
+      - --region=us-west1
+      - --source=machine_learning_models/light_gradient_boosting_machine/.
+      - --trigger-http
+      - --gen2
+      - --cpu=1
+      - --runtime=python312
+      - --memory=1GB
+      - --timeout=90
+      - --min-instances=0
+      - --max-instances=4
+      - --concurrency=4
+      - --ingress-settings=all
+  # Deploy the visualization app
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', 'visualization_app/app.yaml', '--quiet']
+
+# Specifying the log bucket was needed for deployment
+logsBucket: gs://team-23-mj-storage-bucket-6242

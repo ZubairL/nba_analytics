@@ -1,0 +1,62 @@
+import dash
+from dash import dcc, html, Input, Output, State
+import dash_bootstrap_components as dbc
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+
+variable_dict = {
+    "var1": "Description of variable 1",
+    "var2": "Description of variable 2",
+    "var3": "Description of variable 3",
+    "var4": "Description of variable 4",
+}
+
+variable_list = html.Ul(
+    [html.Li(f"{key}: {value}") for key, value in variable_dict.items()]
+)
+
+app.layout = html.Div(
+    [
+        dbc.Button(
+            "Show Variables Info",
+            id="open-popup",
+            n_clicks=0,
+            color="danger",
+            size="lg",
+            className="mt-3 mb-3",
+            style={
+                "font-weight": "bold",
+                "border-radius": "8px",
+            },
+        ),
+        dbc.Modal(
+            [
+                dbc.ModalHeader(
+                    dbc.ModalTitle("Variables and Their Descriptions")
+                ),
+                dbc.ModalBody(variable_list),
+                dbc.ModalFooter(
+                    dbc.Button("Close", id="close-popup", className="ml-auto")
+                ),
+            ],
+            id="popup-modal",
+            is_open=False,
+        ),
+    ]
+)
+
+
+# Callback to open/close popup
+@app.callback(
+    Output("popup-modal", "is_open"),
+    [Input("open-popup", "n_clicks"), Input("close-popup", "n_clicks")],
+    [State("popup-modal", "is_open")],
+)
+def toggle_modal(open_clicks, close_clicks, is_open):
+    if open_clicks or close_clicks:
+        return not is_open
+    return is_open
+
+
+if __name__ == "__main__":
+    app.run_server(debug=True)
