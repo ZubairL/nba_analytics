@@ -11,7 +11,7 @@ https://www.youtube.com/watch?v=Z5mvUHS3puI
 
 ## Description
 
-The Team 22 Project aims to compare predictors of team success between the NBA and WNBA via visualizations and machine learning models.
+This project aims to compare predictors of team success between the NBA and WNBA via visualizations and machine learning models.
 Key components are:
 - Get Data
   - R and Python code to get data from the Wehoop and NBA APIs, respectively.
