@@ -1,4 +1,5 @@
-# Team 22 Project
+# Predictive Factors of Team Success in the WNBA: A Comparative Analysis with the NBA                                       !
+
 
 ## INTERACTIVE WEBSITE AND VISUALIZATION
 
