@@ -79,13 +79,6 @@ Then, make a POST request to it with the payload (BigQuery table name, ind/depen
 
 You can make a POST request via Insomnia / Postman, etc.
 
-## Clone the Project
-
-Using terminal/command prompt:
-- Set working directory to where you want the Python project saved
-- Run the following in terminal / command prompt:
-  - git clone https://github.com/team-23-mj/team_23
-- Project should be cloned successfully.
 
 ## Important
 Activate conda environment for project upon initialization:
